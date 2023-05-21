@@ -1,0 +1,6 @@
+C:\Users\ianga\OneDrive\Documentos\SharpDevelop Projects\proyectofinal\proyecto\obj\Debug\proyecto.csprojResolveAssemblyReference.cache
+C:\Users\ianga\OneDrive\Documentos\SharpDevelop Projects\proyectofinal\proyecto\bin\Debug\proyecto.exe.config
+C:\Users\ianga\OneDrive\Documentos\SharpDevelop Projects\proyectofinal\proyecto\bin\Debug\proyecto.exe
+C:\Users\ianga\OneDrive\Documentos\SharpDevelop Projects\proyectofinal\proyecto\bin\Debug\proyecto.pdb
+C:\Users\ianga\OneDrive\Documentos\SharpDevelop Projects\proyectofinal\proyecto\obj\Debug\proyecto.exe
+C:\Users\ianga\OneDrive\Documentos\SharpDevelop Projects\proyectofinal\proyecto\obj\Debug\proyecto.pdb
