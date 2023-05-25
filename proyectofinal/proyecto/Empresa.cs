@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections;
 namespace proyecto
@@ -6,6 +6,7 @@ namespace proyecto
 	public class Empresa
 	{	
 		// atributos
+		private string nombre;
 		private ArrayList listaObras;
 		private ArrayList listaGrupos;
 		private ArrayList listaObrasFinalizadas;
@@ -95,6 +96,13 @@ namespace proyecto
 		
 		public Obra verObraFinalizada (int valor){
 			return (Obra)this.listaObrasFinalizadas[valor];
+		}
+		
+		//propiedades
+		
+		public string Nombre {
+			set {nombre = value;}
+			get {return nombre;}
 		}
 	}
 }
