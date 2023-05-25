@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Collections;
 namespace proyecto
@@ -11,6 +11,7 @@ namespace proyecto
 						//creacion empresa y grupos
 						Empresa ManiAlaObra;
 						ManiAlaObra = new Empresa();
+						ManiAlaObra.Nombre = "Mani a la Obra";
 						
 						Grupo uno = new Grupo();
 						Grupo dos = new Grupo();
@@ -49,7 +50,7 @@ namespace proyecto
 						while (bandera == false )
 									{	
 						Console.WriteLine("--------------------------------------------------------------");
-						Console.WriteLine("Bienvenido a Mani a la Obra!");
+						Console.WriteLine("Bienvenido a " + ManiAlaObra.Nombre);
 						Console.WriteLine("--------------------------------------------------------------");
 						Console.WriteLine("Elija una opción: ");
 						Console.WriteLine("1-Contratar un obrero");
@@ -187,11 +188,16 @@ namespace proyecto
 								Console.WriteLine("------------------------------------------");
 					}
 				}
-
 			}
 					//funcion para ver el total de obras en progreso de la empresa
 					
 					public static void verObras (Empresa emp){
+						if (emp.cantidadObras() == 0){
+							Console.WriteLine("------------------------------------------");
+							Console.WriteLine("No hay obras en progreso");
+							Console.WriteLine("------------------------------------------");
+						}
+						else {
 						for (int i = 0; i < emp.cantidadObras(); i++){
 							Obra proyec = emp.verObra(i);
 							Console.WriteLine("------------------------------------------");
@@ -205,7 +211,7 @@ namespace proyecto
 							Console.WriteLine("Costo: " + proyec.Costo);
 							Console.WriteLine("------------------------------------------");							
 						}
-
+					}
 				}
 					//funcion para agregar una nueva obra y asignarle automaticamente un grupo, si no hay grupos disponibles se levanta una excepcion
 					
