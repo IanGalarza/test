@@ -312,6 +312,12 @@ namespace proyecto
 					//Funcion que muestra todas las obras finalizadas de la empresa
 					
 					public static void verObrasFinalizadas (Empresa emp){
+						if (emp.cantidadObrasFinalizadas() == 0){
+							Console.WriteLine("------------------------------------------");
+							Console.WriteLine("No hay obras finalizadas.");
+							Console.WriteLine("------------------------------------------");
+						}
+						else {
 						foreach (Obra proyecto in emp.todasObrasFinalizadas()){
 						proyecto.Avance = 100;
 							Console.WriteLine("------------------------------------------");
@@ -324,6 +330,7 @@ namespace proyecto
 							Console.WriteLine("grupo trabajando:" + proyecto.GruposTrabajando);
 							Console.WriteLine("Costo:" + proyecto.Costo);
 							Console.WriteLine("------------------------------------------");	
+							}
 						}
 					}
 		}
