@@ -14,6 +14,7 @@ namespace proyecto
 		private string nombrePropietario;
 		private int dniPropietario;
 		private int codigoInterno;
+		public static int codigoSistema = 0;
 		
 		//constructores
 		public Obra(){}

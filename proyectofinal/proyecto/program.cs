@@ -45,8 +45,6 @@ namespace proyecto
 						//menu
 
 						bool bandera = false;
-						int valor = 0;
-						
 						while (bandera == false )
 									{	
 						Console.WriteLine("--------------------------------------------------------------");
@@ -85,8 +83,7 @@ namespace proyecto
 															Console.ReadKey();
 															break;
 													case "5":
-															valor = valor + 1;
-															agregarObra (ManiAlaObra, valor);
+															agregarObra (ManiAlaObra);
 															Console.WriteLine("Presione una tecla para continuar...");
 															Console.ReadKey();
 															break;
@@ -215,11 +212,11 @@ namespace proyecto
 				}
 					//funcion para agregar una nueva obra y asignarle automaticamente un grupo, si no hay grupos disponibles se levanta una excepcion
 					
-					public static void agregarObra (Empresa emp, int val){
+					public static void agregarObra (Empresa emp){
 						string propietario, tipo_Obra, tiempo;
-						int dni_Propietario, costoObra, codigoInterno, grupotrabajando;
+						int dni_Propietario, costoObra, grupotrabajando;
 						grupotrabajando = 0;
-						codigoInterno = val;
+						Obra.codigoSistema ++;
 						Obra proyecto;
 						Console.WriteLine("Ingrese el nombre del propietario:");
 						propietario = Console.ReadLine();
@@ -234,7 +231,7 @@ namespace proyecto
 						
 						proyecto = new Obra ();
 						
-						proyecto.CodigoInterno = val;
+						proyecto.CodigoInterno = Obra.codigoSistema;
 						proyecto.NombrePropietario = propietario;
 						proyecto.DniPropietario = dni_Propietario;
 						proyecto.GruposTrabajando = grupotrabajando;
@@ -254,7 +251,7 @@ namespace proyecto
 							if (contador > 0){
 								foreach (Grupo grup in emp.gruposIntegrados()){
 									if (grup.CodigoDeObra == 0){
-										grup.CodigoDeObra = val;
+										grup.CodigoDeObra = Obra.codigoSistema;
 										proyecto.GruposTrabajando = grup.NumeroGrupo;
 										emp.agregarObra(proyecto);
 										Console.WriteLine("------------------------------------------");
