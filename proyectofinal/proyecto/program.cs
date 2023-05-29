@@ -137,6 +137,7 @@ namespace proyecto
  								if (grp.NumeroGrupo == codigoGrupo){
  									existeGrupo = true;
  									grp.agregarObrero(obr);
+									Console.WriteLine("--------------------------------------------------------------");
  									Console.WriteLine("El obrero se agrego con exito");
  									break;
  										}
@@ -146,9 +147,11 @@ namespace proyecto
  							}
 						}
 					catch(GrupoNoExiste){
+						Console.WriteLine("--------------------------------------------------------------");
 						Console.WriteLine("El grupo ingresado no existe, intente nuevamente...");
 						}
 					catch(Exception){
+						Console.WriteLine("--------------------------------------------------------------");
 						Console.WriteLine("Se ha producido un error, intente nuevamente...");
 						}
 			}
@@ -177,6 +180,7 @@ namespace proyecto
 											if(obr.Dni == dni){
 											existe = true;
 											grp.eliminarObrero(obr);
+											Console.WriteLine("--------------------------------------------------------------");
 											Console.WriteLine("Se elimino el obrero con exito");
 											break;
 													}
@@ -188,12 +192,15 @@ namespace proyecto
 							}
 						}
 						catch(SinObreros){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("No hay ningun obrero disponible");
 						}
 						catch (ObreroNoExiste){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("El dni ingresado no pertenece a ningun obrero, intentelo nuevamente...");
 						}
 						catch (Exception){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("Se ha producido un error, intente nuevamente...");
 						}
 					}
@@ -227,6 +234,7 @@ namespace proyecto
 											}
 						}
 						catch(SinObreros){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("No hay ningun obrero disponible");
 						}
 				}
@@ -248,12 +256,13 @@ namespace proyecto
 									Console.WriteLine("Tiempo estimado: " + proyec.TiempoEstimado + " dias");
 									Console.WriteLine("Estado de avance: " + proyec.Avance + "%");
 									Console.WriteLine("Grupo trabajando: " + proyec.GruposTrabajando);
-									Console.WriteLine("Costo: " + proyec.Costo);
+									Console.WriteLine("Costo: " + proyec.Costo + "$");
 									Console.WriteLine("------------------------------------------");							
 												}
 									}
 						}
 						catch (SinObras){
+						Console.WriteLine("--------------------------------------------------------------");
 						Console.WriteLine("No hay obras en progreso");
 						}
 					}
@@ -301,9 +310,8 @@ namespace proyecto
 											grup.CodigoDeObra = Obra.codigoSistema;
 											proyecto.GruposTrabajando = grup.NumeroGrupo;
 											emp.agregarObra(proyecto);
-											Console.WriteLine("------------------------------------------");
+											Console.WriteLine("--------------------------------------------------------------");
 											Console.WriteLine("Se Agrego la obra con exito");
-											Console.WriteLine("------------------------------------------");
 											break;
 											}
 										}
@@ -313,9 +321,11 @@ namespace proyecto
 								}	
 						}
 						catch(SinGrupos){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine ("No hay grupos disponibles");
 						}
 						catch(Exception){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("Se ha producido un error, intente nuevamente...");
 						}
 				}
@@ -349,7 +359,7 @@ namespace proyecto
 																}
 															}
 														}
-									Console.WriteLine("------------------------------------------");
+									Console.WriteLine("--------------------------------------------------------------");
 									Console.WriteLine("Se modifico el estado de obra con exito");
 									break;
 												}
@@ -360,12 +370,15 @@ namespace proyecto
 								}
 						}
 						catch (SinObras){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("No hay obras en progreso");
 						}
 						catch (ObraNoExiste){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("El codigo de obra ingresado no se encuentra, intentelo nuevamente...");							
 						}
 						catch (Exception){
+							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("Se ha producido un error, intente nuevamente...");
 						}
 				}
@@ -387,12 +400,13 @@ namespace proyecto
 									Console.WriteLine("Tiempo estimado:" + proyecto.TiempoEstimado + " dias");
 									Console.WriteLine("Estado de avance:" + proyecto.Avance + "%");
 									Console.WriteLine("grupo trabajando:" + proyecto.GruposTrabajando);
-									Console.WriteLine("Costo:" + proyecto.Costo);
+									Console.WriteLine("Costo:" + proyecto.Costo + "$");
 									Console.WriteLine("------------------------------------------");	
 										}
 								}
 						}
 						catch (SinObras){
+						Console.WriteLine("--------------------------------------------------------------");
 						Console.WriteLine("No hay obras finalizadas.");
 						}
 				}
