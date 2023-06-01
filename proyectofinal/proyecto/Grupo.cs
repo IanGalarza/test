@@ -39,6 +39,7 @@ namespace proyecto
 			return (Obrero)this.listaObreros[valor];
 		}
 		
+		//propiedades
 		public int CodigoDeObra{
 			set { codigoDeObra = value;
 		}

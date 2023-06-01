@@ -143,10 +143,10 @@ namespace proyecto
  										}
  									}
  							if (existeGrupo == false){
- 								throw new GrupoNoExiste();
+ 								throw new GrupoNoExisteException();
  							}
 						}
-					catch(GrupoNoExiste){
+					catch(GrupoNoExisteException){
 						Console.WriteLine("--------------------------------------------------------------");
 						Console.WriteLine("El grupo ingresado no existe, intente nuevamente...");
 						}
@@ -169,7 +169,7 @@ namespace proyecto
 								}
 							}
 							if (hayObreros == 0){
-								throw new SinObreros();
+								throw new SinObrerosException();
 							}
 							else{
 								Console.WriteLine("Ingrese el dni del obrero a eliminar.");
@@ -187,15 +187,15 @@ namespace proyecto
 												}
 										}
 							if (existe == false){
-								throw new ObreroNoExiste();
+								throw new ObreroNoExisteException();
 								}
 							}
 						}
-						catch(SinObreros){
+						catch(SinObrerosException){
 							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("No hay ningun obrero disponible");
 						}
-						catch (ObreroNoExiste){
+						catch (ObreroNoExisteException){
 							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("El dni ingresado no pertenece a ningun obrero, intentelo nuevamente...");
 						}
@@ -215,7 +215,7 @@ namespace proyecto
 								}
 							}
 							if (hayObreros == 0){
-								throw new SinObreros();
+								throw new SinObrerosException();
 							}
 							else {
 								for (int i = 0; i < emp.cantidadGrupos();i++){
@@ -233,7 +233,7 @@ namespace proyecto
 												}
 											}
 						}
-						catch(SinObreros){
+						catch(SinObrerosException){
 							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("No hay ningun obrero disponible");
 						}
@@ -243,7 +243,7 @@ namespace proyecto
 					public static void verObras (Empresa emp){
 						try{
 							if (emp.cantidadObras() == 0){
-								throw new SinObras();
+								throw new SinObrasException();
 						}
 							else {
 								for (int i = 0; i < emp.cantidadObras(); i++){
@@ -261,7 +261,7 @@ namespace proyecto
 												}
 									}
 						}
-						catch (SinObras){
+						catch (SinObrasException){
 						Console.WriteLine("--------------------------------------------------------------");
 						Console.WriteLine("No hay obras en progreso");
 						}
@@ -317,10 +317,10 @@ namespace proyecto
 										}
 									}
 							else{
-								throw new SinGrupos();
+								throw new SinGruposException();
 								}	
 						}
-						catch(SinGrupos){
+						catch(SinGruposException){
 							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine ("No hay grupos disponibles");
 						}
@@ -337,7 +337,7 @@ namespace proyecto
 							int codigo, valorAvance;
 							bool existe = false;
 							if (emp.cantidadObras() == 0){
-								throw new SinObras();
+								throw new SinObrasException();
 							}
 							else {
 								verObras(emp);  //muestra las obras en ejecucion para que el usuario pueda ingresar su codigo interno
@@ -365,15 +365,15 @@ namespace proyecto
 												}
 											}
 								if (existe == false){
-									throw new ObraNoExiste();
+									throw new ObraNoExisteException();
 									}
 								}
 						}
-						catch (SinObras){
+						catch (SinObrasException){
 							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("No hay obras en progreso");
 						}
-						catch (ObraNoExiste){
+						catch (ObraNoExisteException){
 							Console.WriteLine("--------------------------------------------------------------");
 							Console.WriteLine("El codigo de obra ingresado no se encuentra, intentelo nuevamente...");							
 						}
@@ -387,7 +387,7 @@ namespace proyecto
 					public static void verObrasFinalizadas (Empresa emp){
 						try {
 							if (emp.cantidadObrasFinalizadas() == 0){
-								throw new SinObras();
+								throw new SinObrasException();
 								}
 							else {
 								foreach (Obra proyecto in emp.todasObrasFinalizadas()){
@@ -405,7 +405,7 @@ namespace proyecto
 										}
 								}
 						}
-						catch (SinObras){
+						catch (SinObrasException){
 						Console.WriteLine("--------------------------------------------------------------");
 						Console.WriteLine("No hay obras finalizadas.");
 						}
