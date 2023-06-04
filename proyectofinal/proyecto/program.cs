@@ -267,36 +267,10 @@ namespace proyecto
 						}
 					}
 					
-					//funcion para agregar una nueva obra y asignarle automaticamente un grupo, si no hay grupos disponibles se levanta una excepcion
+					//funcion para agregar una nueva obra y asignarle un grupo, si no hay grupos disponibles se levanta una excepcion
 					
 					public static void agregarObra (Empresa emp){
 						try {
-							string propietario, tipo_Obra, tiempo;
-							int dni_Propietario, costoObra, grupotrabajando;
-							grupotrabajando = 0;
-							Obra.codigoSistema ++;
-							Obra proyecto;
-							Console.WriteLine("Ingrese el nombre del propietario:");
-							propietario = Console.ReadLine();
-							Console.WriteLine("Ingrese el dni del propietario:");
-							dni_Propietario = int.Parse(Console.ReadLine());
-							Console.WriteLine("Ingrese el tipo de obra:");
-							tipo_Obra = Console.ReadLine();
-							Console.WriteLine("Ingrese la cantidad de dias esperados de ejecucion:");
-							tiempo = Console.ReadLine();
-							Console.WriteLine("Ingrese el costo de obra:");
-							costoObra = int.Parse(Console.ReadLine());
-							
-							proyecto = new Obra ();
-						
-							proyecto.CodigoInterno = Obra.codigoSistema;
-							proyecto.NombrePropietario = propietario;
-							proyecto.DniPropietario = dni_Propietario;
-							proyecto.GruposTrabajando = grupotrabajando;
-							proyecto.Costo = costoObra;
-							proyecto.TipoDeObra = tipo_Obra;
-							proyecto.TiempoEstimado = tiempo;
-			
 							int contador = 0;
 							for (int i = 0; i < emp.cantidadGrupos();i++){
 								Grupo grp = emp.verGrupo (i);
@@ -304,21 +278,66 @@ namespace proyecto
 									contador ++;
 										}
 									}
-							if (contador > 0){
+								if (contador > 0){
+								string propietario, tipo_Obra, tiempo;
+								int dni_Propietario, costoObra, grupotrabajando;
+								grupotrabajando = 0;
+								Obra.codigoSistema ++;
+								Obra proyecto;
+								Console.WriteLine("Ingrese el nombre del propietario:");
+								propietario = Console.ReadLine();
+								Console.WriteLine("Ingrese el dni del propietario:");
+								dni_Propietario = int.Parse(Console.ReadLine());
+								Console.WriteLine("Ingrese el tipo de obra:");
+								tipo_Obra = Console.ReadLine();
+								Console.WriteLine("Ingrese la cantidad de dias esperados de ejecucion:");
+								tiempo = Console.ReadLine();
+								Console.WriteLine("Ingrese el costo de obra:");
+								costoObra = int.Parse(Console.ReadLine());
+							
+								proyecto = new Obra ();
+						
+								proyecto.CodigoInterno = Obra.codigoSistema;
+								proyecto.NombrePropietario = propietario;
+								proyecto.DniPropietario = dni_Propietario;
+								proyecto.GruposTrabajando = grupotrabajando;
+								proyecto.Costo = costoObra;
+								proyecto.TipoDeObra = tipo_Obra;
+								proyecto.TiempoEstimado = tiempo;
+								Console.WriteLine("--------------------------------------------------------------");
+								Console.WriteLine("Seleccione un grupo para la obra:");
 								foreach (Grupo grup in emp.gruposIntegrados()){
 									if (grup.CodigoDeObra == 0){
-											grup.CodigoDeObra = Obra.codigoSistema;
-											proyecto.GruposTrabajando = grup.NumeroGrupo;
+										Console.WriteLine("grupo: " + grup.NumeroGrupo);
+															}
+														}
+								int opcion;
+								bool bandera;
+								bandera = false;
+								Console.WriteLine("--------------------------------------------------------------");
+								opcion = int.Parse(Console.ReadLine());
+								foreach (Grupo grupp in emp.gruposIntegrados()){
+									if ((grupp.CodigoDeObra == 0) & (grupp.NumeroGrupo == opcion)){
+											grupp.CodigoDeObra = Obra.codigoSistema;
+											proyecto.GruposTrabajando = grupp.NumeroGrupo;
 											emp.agregarObra(proyecto);
+											bandera = true;
 											Console.WriteLine("--------------------------------------------------------------");
 											Console.WriteLine("Se Agrego la obra con exito");
 											break;
-											}
-										}
 									}
+								}
+								if (bandera == false){
+									throw new GrupoNoExisteException();
+									}
+							}
 							else{
 								throw new SinGruposException();
 								}	
+						}
+						catch(GrupoNoExisteException){
+						Console.WriteLine("--------------------------------------------------------------");
+						Console.WriteLine("El grupo ingresado no se encuentra disponible, intente nuevamente...");
 						}
 						catch(SinGruposException){
 							Console.WriteLine("--------------------------------------------------------------");
