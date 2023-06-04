@@ -255,7 +255,7 @@ namespace proyecto
 									Console.WriteLine("Tipo de obra: " + proyec.TipoDeObra);
 									Console.WriteLine("Tiempo estimado: " + proyec.TiempoEstimado + " dias");
 									Console.WriteLine("Estado de avance: " + proyec.Avance + "%");
-									Console.WriteLine("Grupo trabajando: " + proyec.GruposTrabajando);
+									Console.WriteLine("Grupo a cargo: " + proyec.GruposTrabajando);
 									Console.WriteLine("Costo: " + proyec.Costo + "$");
 									Console.WriteLine("------------------------------------------");							
 												}
@@ -418,7 +418,7 @@ namespace proyecto
 									Console.WriteLine("Tipo de obra:" + proyecto.TipoDeObra);
 									Console.WriteLine("Tiempo estimado:" + proyecto.TiempoEstimado + " dias");
 									Console.WriteLine("Estado de avance:" + proyecto.Avance + "%");
-									Console.WriteLine("grupo trabajando:" + proyecto.GruposTrabajando);
+									Console.WriteLine("grupo a cargo:" + proyecto.GruposTrabajando);
 									Console.WriteLine("Costo:" + proyecto.Costo + "$");
 									Console.WriteLine("------------------------------------------");	
 										}
